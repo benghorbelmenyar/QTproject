@@ -1,0 +1,34 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>image/equipement.png</file>
+        <file>image/formation.png</file>
+        <file>image/employe.png</file>
+        <file>image/formateur.png</file>
+        <file>image/client.png</file>
+        <file>image/start.png</file>
+        <file>image/racine.png</file>
+        <file>image/gestionemploye.png</file>
+        <file>image/1.png</file>
+        <file>image/home.png</file>
+        <file>image/resize.png</file>
+        <file>image/2.png</file>
+        <file>image/2'.png</file>
+        <file>image/ajout.png</file>
+        <file>image/home1.png</file>
+        <file>image/profil.png</file>
+        <file>image/profil2.png</file>
+        <file>image/blanc.png</file>
+        <file>image/+.png</file>
+        <file>image/-.png</file>
+        <file>image/2278983 (1).png</file>
+        <file>image/export.png</file>
+        <file>image/64.png</file>
+        <file>image/100.png</file>
+        <file>image/429088998_1325860471425281_1038878447818053178_n (1).png</file>
+        <file>image/k.png</file>
+        <file>image/7.png</file>
+        <file>image/Untitled-3 (1) (1).png</file>
+        <file>image/ajouter.png</file>
+        <file>image/flesh (1).png</file>
+    </qresource>
+</RCC>
