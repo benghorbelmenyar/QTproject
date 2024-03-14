@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include"employe.h"
+#include <QSoundEffect>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -14,6 +15,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     bool controleSaisie_ajout();
+    bool controleSaisie_modif();
+    void stat_employe ();
     ~MainWindow();
 
 private slots:
@@ -87,7 +90,24 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_bouton_modfier_clicked();
+
+    void on_comboBox_currentTextChanged(const QString &arg1);
+
+    void on_lineEdit_4_textChanged(const QString &arg1);
+
+    void on_pushButtonupdate_clicked();
+
+    void on_tabWidget_tabBarClicked(int index);
+
+    void on_pdf_clicked();
+
+    void on_label_23_linkActivated(const QString &link);
+
+    void on_tabWidget_currentChanged(int index);
+
 private:
     Ui::MainWindow *ui;
+    QSoundEffect song_bref ;
 };
 #endif // MAINWINDOW_H

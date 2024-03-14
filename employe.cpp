@@ -5,7 +5,7 @@ employe::employe()
 {
 
 }
-employe:: employe(int i, QString n, QString p, QString ml, int ag,QString r, QString md, QString d, QString f)
+employe:: employe(int i, QString n, QString p, QString ml, int ag,QString r, QString md,int sl , QString d, QString f)
 {
     id=i;
     nom=n;
@@ -14,6 +14,7 @@ employe:: employe(int i, QString n, QString p, QString ml, int ag,QString r, QSt
     age=ag;
     role =r;
     mdp=md;
+   salaire=sl;
     h_d=d;
     h_f=f;
 
@@ -21,8 +22,8 @@ employe:: employe(int i, QString n, QString p, QString ml, int ag,QString r, QSt
 bool employe :: ajouter()
 {
     QSqlQuery query ;
-    query.prepare("INSERT INTO EMPLOYE (id,nom,prenom,mail,age,role,mdp,h_d,h_f) "
-                  "VALUES (:id , :nom,:prenom,:mail,:age,:role,:mdp,:h_d,:h_f)");
+    query.prepare("INSERT INTO EMPLOYE (id,nom,prenom,mail,age,role,mdp,salaire ,h_d,h_f) "
+                  "VALUES (:id , :nom,:prenom,:mail,:age,:role,:mdp,:salaire,:h_d,:h_f)");
     query.bindValue(":id",id);
     query.bindValue(":nom" , nom);
     query.bindValue(":prenom" , prenom);
@@ -30,6 +31,7 @@ bool employe :: ajouter()
     query.bindValue(":age" , age);
     query.bindValue(":role" , role);
     query.bindValue(":mdp" , mdp);
+    query.bindValue(":salaire" , salaire);
     query.bindValue(":h_d" , h_d);
     query.bindValue(":h_f" , h_f);
     if(query.exec())
@@ -38,7 +40,7 @@ bool employe :: ajouter()
     }
     else
     {
-        qDebug () << query.lastError();
+        qDebug () << query.lastError() << salaire;
         return false ;
     }
 }
@@ -63,22 +65,12 @@ QSqlQueryModel* employe :: afficher()
 {
     QSqlQueryModel* model =new QSqlQueryModel() ;
     model->setQuery("SELECT  *  FROM EMPLOYE");
-    model->setHeaderData(0, Qt::Horizontal,QObject:: tr("id"));
-    model->setHeaderData(1, Qt::Horizontal,QObject:: tr("nom"));
-    model->setHeaderData(2, Qt::Horizontal,QObject:: tr("prenom"));
-    model->setHeaderData(3, Qt::Horizontal,QObject:: tr("mail"));
-    model->setHeaderData(4, Qt::Horizontal,QObject:: tr("age"));
-    model->setHeaderData(5, Qt::Horizontal,QObject:: tr("salaire"));
-    model->setHeaderData(6, Qt::Horizontal,QObject:: tr("role"));
-    model->setHeaderData(7, Qt::Horizontal,QObject:: tr("h_f"));
-    model->setHeaderData(8, Qt::Horizontal,QObject:: tr("h_d"));
-    model->setHeaderData(8, Qt::Horizontal,QObject:: tr("h_d"));
     return model;
 }
 bool employe::modifier()
 {
     QSqlQuery query;
-    query.prepare("UPDATE EMPLOYE SET nom = :nom, prenom = :prenom, mail = :mail, age = :age, role = :role, mdp = :mdp, h_f = :h_f, h_d = :h_d WHERE id = :id");
+    query.prepare("UPDATE EMPLOYE SET nom = :nom, prenom = :prenom, mail = :mail, age = :age, role = :role, mdp = :mdp, salaire= :salaire,h_f = :h_f, h_d = :h_d WHERE id = :id");
     query.bindValue(":id", id);
     query.bindValue(":nom", nom);
     query.bindValue(":prenom", prenom);
@@ -86,6 +78,7 @@ bool employe::modifier()
     query.bindValue(":age", age);
     query.bindValue(":role", role);
     query.bindValue(":mdp", mdp);
+    query.bindValue(":salaire", salaire);
     query.bindValue(":h_d", h_d);
     query.bindValue(":h_f", h_f);
 
@@ -112,4 +105,27 @@ bool employe:: supprimer()
     {
         return  false ;
     }
+}
+QSqlQueryModel* employe:: trie(QString attribut)
+{
+    QSqlQueryModel* model =new QSqlQueryModel() ;
+    if(attribut == "nom") model->setQuery("select * from employe order by nom ASC");
+    else if( attribut == "prenom") model->setQuery("select * from employe order by prenom ASC");
+    else  model->setQuery("select * from employe order by id ASC");
+    return  model ;
+}
+QSqlQueryModel* employe:: recherche (QString attribut , QString ch)
+{
+    QSqlQueryModel* model =new QSqlQueryModel() ;
+    if(attribut == "nom") model->setQuery("SELECT * FROM employe WHERE nom LIKE '%" + ch + "%'");
+    else if( attribut == "prenom") model->setQuery("SELECT * FROM employe WHERE prenom LIKE '%" + ch + "%'");
+    else  model->setQuery("select * from employe where id LIKE '%" + ch + "%'");
+    return  model ;
+}
+int employe::count (QString ch)
+{
+    QSqlQueryModel* searchModel = new QSqlQueryModel();
+        searchModel->setQuery("SELECT * FROM EMPLOYE WHERE role LIKE '%" + ch + "%'");
+
+        return searchModel->rowCount() ;
 }

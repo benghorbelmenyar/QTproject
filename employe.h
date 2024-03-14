@@ -22,6 +22,7 @@ private:
     int age;
     QString role;
     QString mdp;
+    int salaire;
     QString h_d;
     QString h_f;
 
@@ -30,12 +31,16 @@ private:
 
 public:
     employe();
-    employe(int , QString , QString , QString , int ,QString , QString , QString , QString  );
+    employe(int , QString , QString , QString , int ,QString , QString ,int, QString , QString  );
     bool ajouter ();
     bool modifier ();
     bool supprimer();
     QSqlQueryModel* afficher();
     bool employe_existe();
+    QSqlQueryModel* trie (QString attribut) ;
+    QSqlQueryModel* recherche (QString attribut , QString ch);
+    int count (QString) ;
+
 };
 
 #endif // EMPLOYE_H

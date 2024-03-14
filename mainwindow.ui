@@ -756,7 +756,7 @@ background-image: url(:/new/prefix1/image/blanc.png);
 </string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -811,41 +811,6 @@ background-color: rgba(255, 255, 255, 0);</string>
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_3">
-      <attribute name="title">
-       <string>Export</string>
-      </attribute>
-      <widget class="QTableView" name="tableviewpdf">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>-9</y>
-         <width>861</width>
-         <height>441</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-image: url(:/new/prefix1/image/blanc.png);</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_24">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>60</y>
-         <width>511</width>
-         <height>321</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-image: url(:/new/prefix1/image/export.png);
-background-color: rgba(255, 255, 255, 0);</string>
-       </property>
-       <property name="text">
-        <string>l</string>
-       </property>
-      </widget>
-     </widget>
     </widget>
     <widget class="QLabel" name="label_10">
      <property name="geometry">
@@ -887,7 +852,7 @@ background-color: rgba(255, 255, 255, 0);</string>
     <widget class="QLineEdit" name="lineEdit_4">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>60</x>
        <y>240</y>
        <width>140</width>
        <height>41</height>
@@ -928,7 +893,7 @@ QLineEdit {
      <property name="geometry">
       <rect>
        <x>70</x>
-       <y>310</y>
+       <y>320</y>
        <width>140</width>
        <height>41</height>
       </rect>
@@ -968,7 +933,7 @@ QLineEdit {
      <property name="geometry">
       <rect>
        <x>70</x>
-       <y>380</y>
+       <y>390</y>
        <width>140</width>
        <height>41</height>
       </rect>
@@ -1007,8 +972,8 @@ QLineEdit {
     <widget class="QLabel" name="x">
      <property name="geometry">
       <rect>
-       <x>210</x>
-       <y>370</y>
+       <x>240</x>
+       <y>380</y>
        <width>61</width>
        <height>61</height>
       </rect>
@@ -1021,11 +986,60 @@ background-color: rgba(255, 255, 255, 0);</string>
       <string/>
      </property>
     </widget>
+    <widget class="QComboBox" name="comboBox">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>270</y>
+       <width>71</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QComboBox {
+	 
+color: #FFFF;
+border: 2px solid #e4a5ff;
+border-radius: 20px;
+border-style: outset;
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #fff, stop: 1 #fff
+);
+padding: 0.3rem 0.2rem;
+
+}
+QComboBox:hover {
+	border: 2px solid rgb(170, 0, 255);
+}
+QComboBox:focus {
+	border: 2px solid rgb(170, 0, 255);
+}
+QComboBox {
+    background-color: transparent;
+}</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>nom</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>prenom</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>id</string>
+      </property>
+     </item>
+    </widget>
     <widget class="QPushButton" name="pushButton_3">
      <property name="geometry">
       <rect>
-       <x>210</x>
-       <y>370</y>
+       <x>240</x>
+       <y>380</y>
        <width>61</width>
        <height>61</height>
       </rect>
@@ -1039,6 +1053,49 @@ background-color: rgba(255, 255, 255, 0);</string>
      </property>
      <property name="text">
       <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pdf">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>630</y>
+       <width>161</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	font: 10pt &quot;MV Boli&quot;;
+
+
+    border: 2px solid #EE99C2;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s, border 0.3s, color 0.3s;
+    background-color: #EE99C2;
+    border-radius: 35px;
+    border-color: #1F1F1F; /* Couleur verte transformée en mauve */
+    color: rgb(255, 255, 255);
+}
+
+QPushButton:hover {
+    border-radius: 25px;
+    background: purple; /* Couleur noire transformée en blanc */
+    color: #fff;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,
+                                      stop: 0 #2E2E2E, stop: 0.5 rgb(43, 208, 31), stop: 1 #2E2E2E);
+    border-color: #0C359E; /* Couleur verte transformée en mauve */
+    color: #eee;
+}</string>
+     </property>
+     <property name="text">
+      <string>export</string>
      </property>
     </widget>
    </widget>
@@ -1534,7 +1591,7 @@ QLineEdit:focus {
     <widget class="QLabel" name="label_15">
      <property name="geometry">
       <rect>
-       <x>270</x>
+       <x>290</x>
        <y>90</y>
        <width>70</width>
        <height>77</height>
@@ -1551,7 +1608,7 @@ background-color: rgba(255, 255, 255, 0);</string>
     <widget class="QPushButton" name="boutonretour_ajoutemploye">
      <property name="geometry">
       <rect>
-       <x>270</x>
+       <x>290</x>
        <y>90</y>
        <width>70</width>
        <height>77</height>
@@ -1591,7 +1648,7 @@ background-color: rgba(255, 255, 255, 0);</string>
    <widget class="QGroupBox" name="grp_maissa">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>2000</x>
       <y>0</y>
       <width>1365</width>
       <height>768</height>
@@ -2870,7 +2927,7 @@ background-color: rgba(255, 255, 255, 0);</string>
    <widget class="QGroupBox" name="add_formation_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>2000</x>
       <y>0</y>
       <width>1365</width>
       <height>768</height>
@@ -3795,7 +3852,7 @@ QPushButton:pressed {
    <widget class="QGroupBox" name="ajout_client">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>2000</x>
       <y>0</y>
       <width>1365</width>
       <height>768</height>
@@ -4581,7 +4638,7 @@ QPushButton:pressed {
    <widget class="QGroupBox" name="ajout_equipement">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>2000</x>
       <y>0</y>
       <width>1365</width>
       <height>768</height>
@@ -5292,14 +5349,86 @@ QPushButton:pressed {
 }</string>
      </property>
      <property name="text">
-      <string>update</string>
+      <string>check out</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_19">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>90</y>
+       <width>70</width>
+       <height>77</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/new/prefix1/image/flesh (1).png);
+background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButtonupdate">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>92</y>
+       <width>75</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border-radius: 50%; /* 50% pour un bouton rond */
+    background-color: transparent; /* Fond transparent */
+    color: white; /* Couleur du texte */
+}
+background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="hd_2">
+     <property name="geometry">
+      <rect>
+       <x>1020</x>
+       <y>540</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+font: 9pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string>H_d</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="hf_2">
+     <property name="geometry">
+      <rect>
+       <x>830</x>
+       <y>480</y>
+       <width>47</width>
+       <height>14</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string>H_f</string>
      </property>
     </widget>
    </widget>
    <widget class="QGroupBox" name="delete_employe">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>2000</x>
       <y>0</y>
       <width>1365</width>
       <height>768</height>
@@ -5479,7 +5608,6 @@ QLineEdit {
    </widget>
    <zorder>grp_login</zorder>
    <zorder>grp_start</zorder>
-   <zorder>grp_gestion</zorder>
    <zorder>grp_maissa</zorder>
    <zorder>add_formateur</zorder>
    <zorder>grp_menyar</zorder>
@@ -5492,9 +5620,10 @@ QLineEdit {
    <zorder>lineEdit_14</zorder>
    <zorder>label_20</zorder>
    <zorder>pushButton_6</zorder>
+   <zorder>grp_gestion</zorder>
    <zorder>update_employe</zorder>
-   <zorder>grp_employe</zorder>
    <zorder>ajout_employe</zorder>
+   <zorder>grp_employe</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
